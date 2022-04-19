@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<Quote>
+
+<div class="container">
+
+    <table class="table table-hover table-striped table-bordered">
+        <thead style="font-weight:bold">
+            <tr>
+                <td scope="col">Quote</td>
+                <td scope="col">Author</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            @*for loop to display each movie*@
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.Quote_body</td>
+                    <td>@x.Author</td>
+
+                    <td><a class="btn" asp-controller="Home" asp-action="Edit" asp-route-applicationid="@x.QuoteId">Details</a></td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

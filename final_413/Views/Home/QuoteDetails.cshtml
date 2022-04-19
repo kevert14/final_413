@@ -1,0 +1,35 @@
+﻿@{
+}
+@model List<Quote>
+
+<div class="container">
+    <table class="table table-hover table-striped table-bordered">
+        <thead style="font-weight:bold">
+            <tr>
+                <td scope="col">Quote</td>
+                <td scope="col">Author</td>
+                <td scope="col">Date</td>
+                <td scope="col">Subject</td>
+                <td scope="col">Citation</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            @*for loop to display each movie*@
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.Quote_body</td>
+                    <td>@x.Author</td>
+                    <td>@x.Date</td>
+                    <td>@x.Subject</td>
+                    <td>@x.Citation</td>
+
+                    <td><a class="btn" asp-controller="Home" asp-action="Edit" asp-route-applicationid="@x.QuoteId">Edit</a></td>
+                    <td><a class="btn" asp-controller="Home" asp-action="Delete" asp-route-applicationid="@x.QuoteId">Delete</a></td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
